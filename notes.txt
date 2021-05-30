@@ -1,0 +1,10 @@
+1. To start a new Create React App project with TypeScript, you can run:
+
+	- npx create-react-app my-app --template typescript
+
+
+
+2. To add TypeScript to an existing Create React App project, first install it:
+
+	- npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+	- Rename any file to be a TypeScript file (e.g. src/index.js to src/index.tsx) and restart your development server!
