@@ -75,7 +75,7 @@ interface SetErrorAction {
   payload: String;
 }
 
-// ACTION type
+// ACTION type with type alias
 export type WeatherAction =
   | GetWeatherAction
   | SetLoadingAction
