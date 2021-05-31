@@ -63,8 +63,8 @@ export const setLoading = (): WeatherAction => {
   };
 };
 
-// Error action
-export const setError = (): WeatherAction => {
+// Reset Error action
+export const resetError = (): WeatherAction => {
   return {
     type: SET_ERROR,
     payload: "",

@@ -13,21 +13,23 @@ const initialState: WeatherState = {
 };
 
 // state type, action type and return type of weather state
-export default (state = initialState, action: WeatherAction): WeatherState => {
+const WeatherReducer = (
+  state = initialState,
+  action: WeatherAction
+): WeatherState => {
   switch (action.type) {
     case SET_LOADING:
       return { ...state, loading: true };
-      break;
 
     case GET_WEATHER:
       return { loading: false, data: action.payload, error: "" };
-      break;
 
     case SET_ERROR:
-      return { ...state, error: action.payload };
-      break;
+      return { loading: false, data: null,  error: action.payload };
 
     default:
       return state;
   }
 };
+
+export default WeatherReducer;

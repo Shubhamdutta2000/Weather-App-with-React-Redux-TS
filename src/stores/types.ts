@@ -2,6 +2,7 @@ export const GET_WEATHER = "GET_WEATHER";
 export const SET_LOADING = "SET_LOADING";
 export const SET_ERROR = "SET_ERROR";
 export const SET_ALERT = "SET_ALERT";
+export const RESET_ALERT = "RESET_ALERT";
 
 export interface Weather {
   id: number;
@@ -60,7 +61,7 @@ export interface WeatherState {
   error: string;
 }
 
-// ACTION
+// ACTION type for weather
 interface GetWeatherAction {
   type: typeof GET_WEATHER;
   payload: WeatherData;
@@ -75,16 +76,24 @@ interface SetErrorAction {
   payload: string;
 }
 
-// ACTION type with type alias
+// ACTION type for weather with type alias
 export type WeatherAction =
   | GetWeatherAction
   | SetLoadingAction
   | SetErrorAction;
 
-export interface AlertAction {
+// ACTION type for alert
+interface SetAlertAction {
   type: typeof SET_ALERT;
   payload: string;
 }
+
+interface ResetAlertAction {
+  type: typeof RESET_ALERT;
+}
+
+// with type alias
+export type AlertAction = SetAlertAction | ResetAlertAction;
 
 export interface AlertState {
   message: string;
