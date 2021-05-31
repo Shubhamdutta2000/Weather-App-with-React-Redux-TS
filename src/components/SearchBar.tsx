@@ -1,14 +1,20 @@
 import React, { FC, useState, FormEvent } from "react";
 
 import { useDispatch } from "react-redux";
-import { setAlert } from "../stores//actions/AlertAction";
-import { getWeather, setLoading } from "../stores/actions/WeatherAction";
+import { setAlert, resetAlert } from "../stores//actions/AlertAction";
+import {
+  getWeather,
+  setLoading,
+  resetError,
+} from "../stores/actions/WeatherAction";
 
 interface SearchProps {
   title: string;
+  error: string;
+  alertMsg: string;
 }
 
-const SearchBar: FC<SearchProps> = ({ title }) => {
+const SearchBar: FC<SearchProps> = ({ title, error, alertMsg }) => {
   const [city, setCity] = useState("");
   const dispatch = useDispatch();
 
@@ -21,29 +27,35 @@ const SearchBar: FC<SearchProps> = ({ title }) => {
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (city.trim() == "") {
+    if (city.trim() === "") {
       dispatch(setAlert("City is required!!"));
+      dispatch(resetError());
+    } else {
+      dispatch(resetAlert());
+      dispatch(setLoading());
+      dispatch(getWeather(city)); // get weather details
+      setCity("");
     }
-    dispatch(setLoading());
-    dispatch(getWeather(city)); // get weather details
-    setCity("");
   };
 
   return (
     <div>
       <h2>{title}</h2>
       <form
-        className="w-75  d-flex text-center justify-content-center"
+        className="w-100  d-flex text-center justify-content-center"
         onSubmit={submitHandler}
       >
         <input
-          className="rounded form-control me-sm-2"
+          className="rounded form-control me-sm-2 fs-5 rounded"
           type="text"
           placeholder="Search"
           onChange={changeHandler}
           value={city}
         />
-        <button className="btn btn-secondary my-2 my-sm-0" type="submit">
+        <button
+          className="btn btn-primary w-25 fs-5 my-2 my-sm-0"
+          type="submit"
+        >
           Search
         </button>
       </form>
