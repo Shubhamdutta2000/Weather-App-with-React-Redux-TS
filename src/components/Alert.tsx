@@ -9,9 +9,9 @@ const Alert: FC<AlertProps> = ({ message }) => {
 
   return (
     <>
-      <div className="mt-5 alert alert-dismissible alert-danger w-50">
+      <div className="m-5 p-5 alert alert-dismissible alert-danger w-50 ">
         <h4 className="text-white fs-1 alert-heading">Sorry!</h4>{" "}
-        <p className="text-white fs-4">{message}</p>
+        <p className="text-white fs-5">{message}</p>
       </div>
     </>
   );

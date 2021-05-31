@@ -40,7 +40,7 @@ const SearchBar: FC<SearchProps> = ({ title, error, alertMsg }) => {
 
   return (
     <div>
-      <h2>{title}</h2>
+      <h2 className="text-center mb-4 ">{title}</h2>
       <form
         className="w-100  d-flex text-center justify-content-center"
         onSubmit={submitHandler}
@@ -48,7 +48,7 @@ const SearchBar: FC<SearchProps> = ({ title, error, alertMsg }) => {
         <input
           className="rounded form-control me-sm-2 fs-5 rounded"
           type="text"
-          placeholder="Search"
+          placeholder="City Name ..."
           onChange={changeHandler}
           value={city}
         />
