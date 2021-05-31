@@ -12,14 +12,15 @@ const initialState: WeatherState = {
   error: "",
 };
 
-export default (state = initialState, action: WeatherAction) => {
+// state type, action type and return type of weather state
+export default (state = initialState, action: WeatherAction): WeatherState => {
   switch (action.type) {
     case SET_LOADING:
       return { ...state, loading: true };
       break;
 
     case GET_WEATHER:
-      return { loading: false, data: action.payload, error: null };
+      return { loading: false, data: action.payload, error: "" };
       break;
 
     case SET_ERROR:
