@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import "./App.css";
 import SearchBar from "./components/SearchBar";
 import Alert from "./components/Alert";
 import Weather from "./components/Weather";
@@ -16,20 +15,23 @@ const App: FC = () => {
   console.log(alertMsg);
 
   return (
-    <div className="container mt-5">
-      <SearchBar
-        error={error}
-        alertMsg={alertMsg}
-        title="Enter city name for Weather Forecast"
-      />
-      {loading ? (
-        <h2 className="text-center mt-5">Loading...</h2>
-      ) : (
-        data && <Weather weatherData={data} />
-      )}
-      {alertMsg && <Alert message={alertMsg} />}
-      {error && <Alert message={error} />}
-    </div>
+    <>
+      <h2 className="w-100 p-3 shadow fs-2">Weather App</h2>
+      <div className="container mt-5 pt-2">
+        <SearchBar
+          error={error}
+          alertMsg={alertMsg}
+          title="Enter city name for Weather Forecast"
+        />
+        {loading ? (
+          <h2 className="text-center mt-5">Loading...</h2>
+        ) : (
+          data && <Weather weatherData={data} />
+        )}
+        {alertMsg && <Alert message={alertMsg} />}
+        {error && <Alert message={error} />}
+      </div>
+    </>
   );
 };
 
