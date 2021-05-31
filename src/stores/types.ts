@@ -5,9 +5,9 @@ export const SET_ALERT = "SET_ALERT";
 
 export interface Weather {
   id: number;
-  main: String;
-  description: String;
-  icon: String;
+  main: string;
+  description: string;
+  icon: string;
 }
 
 export interface WeatherData {
@@ -30,12 +30,12 @@ export interface WeatherData {
     temp_max: number;
     temp_min: number;
   };
-  name: String;
+  name: string;
   sys: {
     type: Number;
     id: Number;
     message: Number;
-    country: String;
+    country: string;
     sunrise: Number;
     sunset: Number;
   };
@@ -49,15 +49,15 @@ export interface WeatherData {
 }
 
 export interface WeatherError {
-  cod: String;
-  message: String;
+  cod: string;
+  message: string;
 }
 
 // STATE
 export interface WeatherState {
   data: WeatherData | null;
   loading: boolean;
-  error: String;
+  error: string;
 }
 
 // ACTION
@@ -72,7 +72,7 @@ interface SetLoadingAction {
 
 interface SetErrorAction {
   type: typeof SET_ERROR;
-  payload: String;
+  payload: string;
 }
 
 // ACTION type with type alias
