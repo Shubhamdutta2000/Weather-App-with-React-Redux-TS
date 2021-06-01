@@ -40,7 +40,7 @@ const SearchBar: FC<SearchProps> = ({ title, error, alertMsg }) => {
 
   return (
     <div>
-      <h2 className="text-center mb-4 ">{title}</h2>
+      <h2 className="text-center fs-1 mb-4 ">{title}</h2>
       <form className="w-100  d-flex text-center" onSubmit={submitHandler}>
         <input
           className="rounded form-control me-sm-2 fs-5 rounded"

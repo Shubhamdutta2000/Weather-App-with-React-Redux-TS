@@ -18,12 +18,12 @@ const Weather: FC<WeatherProps> = ({ weatherData }) => {
   return (
     <>
       <div className="container">
-        <h1 className="mt-5 text-center" style={{ marginBottom: 50 }}>
+        <h1 className="mt-5 display-5 text-center" style={{ marginBottom: 50 }}>
           {weatherData.name} - {weatherData.sys.country}
         </h1>
-        <div className="d-flex justify-content-around">
+        <div className="d-flex flex-lg-row flex-column text-center justify-content-around align-item-center">
           <div>
-            <p className="fs-2">
+            <p className="fs-2 font-weight-bolder ">
               {capitalize(weatherData.weather[0].description)}
             </p>
             <img
@@ -33,7 +33,7 @@ const Weather: FC<WeatherProps> = ({ weatherData }) => {
             />
           </div>
           <div>
-            <p className="fs-2">Temperature</p>
+            <p className="fs-2 font-weight-bolder ">Temperature</p>
             <div className="title">
               <p className="mb-2 fs-5">{weatherData.main.temp}K</p>
               <p className="mb-2 fs-5">
@@ -47,15 +47,15 @@ const Weather: FC<WeatherProps> = ({ weatherData }) => {
             </div>
           </div>
           <div>
-            <p className="fs-2">Humidity</p>
+            <p className="fs-2 font-weight-bolder ">Humidity</p>
             <p className="fs-5">{weatherData.main.humidity}</p>
           </div>
           <div>
-            <p className="fs-2">Pressure</p>
+            <p className="fs-2 font-weight-bolder ">Pressure</p>
             <p className="fs-5">{weatherData.main.pressure}</p>
           </div>
           <div>
-            <p className="fs-2">Wind</p>
+            <p className="fs-2 font-weight-bolder ">Wind</p>
             <p className="fs-5">{weatherData.wind.speed} m/s</p>
           </div>
         </div>
